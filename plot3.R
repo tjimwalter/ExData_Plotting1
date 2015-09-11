@@ -24,6 +24,12 @@ GetHPC <- function(){
   return(df)
 }
 
+#
+# Plot 3 types of Energy sub metering as a function of time
+# Red, blue and black are used to distinguish between the types
+# A legend is added in the upper right of the plot
+# bty is parameterized so the box surrounding the legend can be turned off
+############################################################
 plot3 <- function(df, bty="o"){
   par(mar=c(5.1,5.1,4.1,2.1))
   plot(df$dateTime, df$Sub_metering_1,

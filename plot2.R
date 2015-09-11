@@ -24,7 +24,10 @@ GetHPC <- function(){
   return(df)
 }
 
-############################################################
+#
+# Plot Global Active Power as a function of time
+# xlab/ylab are parameterized for reuse in plot 4
+######################################################################
 plot2 <- function(x, y, xlab="", ylab=""){
   par(mar=c(5.1,5.1,4.1,2.1))
   plot(x, y,

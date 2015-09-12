@@ -1,6 +1,6 @@
 # This script implements plotting for assignment #1
 # of the exploratory data analysis course
-############################################################
+###############################################################################
 GetHPC <- function(){
   df <- read.csv(file="household_power_consumption.txt",
                  sep=";", 
@@ -29,7 +29,7 @@ GetHPC <- function(){
 # Red, blue and black are used to distinguish between the types
 # A legend is added in the upper right of the plot
 # bty is parameterized so the box surrounding the legend can be turned off
-############################################################
+###############################################################################
 plot3 <- function(df, bty="o"){
   par(mar=c(5.1,5.1,4.1,2.1))
   plot(df$dateTime, df$Sub_metering_1,
@@ -42,9 +42,10 @@ plot3 <- function(df, bty="o"){
   legend("topright", names(df[7:9]), col=c("black","red","blue"), lty=1, bty=bty)
 }
 
-##################################################
-df <- GetHPC()
-
-png(filename="plot3.png", width=480, height=480)
-plot3(df)
-dev.off()
+#
+# This area executes when you source the file
+###############################################################################
+df <- GetHPC()                                      # Read and format the data
+png(filename="plot3.png", width=480, height=480)    # Setup the device
+plot3(df)                                           # Create plot on  device
+dev.off()                                           # Turn off device & render

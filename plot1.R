@@ -1,6 +1,6 @@
 # This script implements plotting for assignment #1
 # of the exploratory data analysis course
-############################################################
+###############################################################################
 GetHPC <- function(){
   df <- read.csv(file="household_power_consumption.txt",
                  sep=";", 
@@ -24,7 +24,9 @@ GetHPC <- function(){
   return(df)
 }
 
-############################################################
+#
+# Plot the data using histogram with color red
+###############################################################################
 plot1 <- function(df){
   par(mar=c(5.1,5.1,4.1,2.1))
   hist(df$Global_active_power, 
@@ -33,9 +35,10 @@ plot1 <- function(df){
        main="Global Active Power")
 }
 
-##################################################
-df <- GetHPC()
-
-png(filename="plot1.png", width=480, height=480)
-plot1(df)
-dev.off()
+#
+# This area executes when you source the file
+###############################################################################
+df <- GetHPC()                                      # Read and format the data
+png(filename="plot1.png", width=480, height=480)    # Setup the device
+plot1(df)                                           # Create plot on  device
+dev.off()                                           # Turn off device & render

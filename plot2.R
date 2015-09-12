@@ -1,6 +1,6 @@
 # This script implements plotting for assignment #1
 # of the exploratory data analysis course
-############################################################
+###############################################################################
 GetHPC <- function(){
   df <- read.csv(file="household_power_consumption.txt",
                  sep=";", 
@@ -27,7 +27,7 @@ GetHPC <- function(){
 #
 # Plot Global Active Power as a function of time
 # xlab/ylab are parameterized for reuse in plot 4
-######################################################################
+###############################################################################
 plot2 <- function(x, y, xlab="", ylab=""){
   par(mar=c(5.1,5.1,4.1,2.1))
   plot(x, y,
@@ -37,11 +37,12 @@ plot2 <- function(x, y, xlab="", ylab=""){
        main="")
 }
 
-##################################################
-df <- GetHPC()
-
-png(filename="plot2.png", width=480, height=480)
-plot2(x=df$dateTime, 
+#
+# This area executes when you source the file
+###############################################################################
+df <- GetHPC()                                      # Read and format the data
+png(filename="plot2.png", width=480, height=480)    # Setup the device
+plot2(x=df$dateTime,                                # Create plot on  device
       y=df$Global_active_power, 
       ylab="Global Active Power (kilowatts)")
-dev.off()
+dev.off()                                           # Turn off device & render
